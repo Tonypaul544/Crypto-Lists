@@ -35,10 +35,10 @@ body {
 
 .row {
   width: fit-content;
-  height: fit-content;
-  text-align: center;
+  height: 90px;
+  padding: 10px;
   align-items: center;
-  /* background-color: gray; */
+  background-color: gray;
   display: flex;
   justify-content: space-between;
   gap: 10px;
