@@ -35,7 +35,7 @@ body {
 
 .row {
   width: fit-content;
-  height: 40px;
+  height: fit-content;
   align-items: center;
   /* background-color: gray; */
   display: flex;
