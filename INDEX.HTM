@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="STYLE.CSS">
+  <link rel="shortcut icon" href="images/telegram icon png.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>AIRDROP & TESTNET LIST</title>
+</head>
+<body>
+  <div class="list-container">
+    <div class="row">
+      <h1 class="list-header">AIRDROP & TESTNET LIST</h1>
+      <!-- <img src="images/pat_task-removebg-preview.png" alt="" class="logo"> -->
+    </div>
+
+    <div class="nav-container">
+      <button class="navBtn games">games</button>
+      <button class="navBtn Airdrops">Airdrops</button>
+      <button class="navBtn Testnets">Fausets</button>
+    </div>
+
+    <form action="submit-form" class="inputForm gameForm" id="change">
+      <input type="text" placeholder="Paste Game URL Here..." id="input-box">
+      <input type="text" placeholder="Project Name" id="name-box">
+      <button type="button" class="submit-ntb" onclick="addTask()">Add</button>
+    </form>
+    
+    <div class="downSection">
+      <div class="slideContainer gamesSlide">
+        <div class="list">
+          <div class="listhead">
+            <h2 class="form-title">Game List</h2>
+          </div>
+          <ul class="list-items" id="list-items">
+            <div class="line line1">
+              <li class="list">List 1</li>
+              <button class="nameBtn btn1">Play</button>
+            </div>
+
+           <div class="line line2">
+            <li class="list">List 2</li>
+            <button class="nameBtn btn2">Play</button>
+           </div>
+
+            <div class="line line3">
+              <li class="Checked">List 3</li>
+              <button class="nameBtn btn3">Play</button>
+            </div>
+          </ul>
+        </div>
+      </div>
+  
+      <form action="submit-form" class="inputForm airdropForm">
+        <input type="text" placeholder="Paste Airdrop URL Here..." id="input-box">
+        <button type="button" class="submit-ntb" onclick="addTask()">Add</button>
+      </form>
+  
+      <div class="slideContainer AirdropsSlide">
+        <div class="list">
+          <div class="listhead">
+            <h2 class="form-title">Airdrops List</h2>
+          </div>
+          <ul class="list-items" id="list-items">
+            <!-- <li class="list">List 1</li>
+            <li class="list">List 2</li>
+            <li class="Checked">List 3</li> -->
+          </ul>
+        </div>
+      </div>
+  
+  
+      <form action="submit-form" class="inputForm testnetForm">
+        <input type="text" placeholder="Paste Fausets URL..." id="input-box">
+        <button type="button" class="submit-ntb" onclick="addTask()">Add</button>
+      </form>
+  
+      <div class="slideContainer TestnetsSlide">
+        <div class="list">
+          <div class="listhead">
+            <h2 class="form-title">Fausets List</h2>
+          </div>
+          <ul class="list-items" id="list-items">
+            <!-- <li class="list">List 1</li>
+            <li class="list">List 2</li>
+            <li class="Checked">List 3</li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+        <!-- ---SOCIAL SECTION---- -->
+    <footer class="social">
+      <a href="#">
+        <div class="twitter">
+          <i class="fa-brands fa-square-x-twitter fa-lg"></i>
+          <h3 class="twitter-label" id="icon-name">Twitter</h3>
+        </div>
+      </a>
+
+      <a href="#">
+          <div class="Telegram">
+          <i class="fa-brands fa-telegram fa-lg" style="color: #10cb74;"></i>
+          <h3 class="Telegram-label" id="icon-name">Telegram</h3>
+        </div>
+      </a>
+
+      <a href="#">
+      <div class="Thread">
+          <i class="fa-brands fa-square-threads fa-lg"></i>
+          <h3 class="Thread-label" id="icon-name">Thread</h3>
+        </div>
+      </a>
+    </footer>
+    <div class="copyright-div">
+      <p class="copyright">All riht reserved Pauline-Tech 2021</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
