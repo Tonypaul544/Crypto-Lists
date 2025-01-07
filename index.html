@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="STYLE.CSS">
   <link rel="shortcut icon" href="images/telegram icon png.jpeg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -16,26 +16,37 @@
       <!-- <img src="images/pat_task-removebg-preview.png" alt="" class="logo"> -->
     </div>
 
+    <div class="warning">
+      <h2 class="warningText">The both firld must be filled..!!</h2>
+    </div>
+
     <div class="nav-container">
-      <button class="navBtn games">games</button>
+      <button class="navBtn games" id="games">games</button>
       <button class="navBtn Airdrops">Airdrops</button>
       <button class="navBtn Testnets">Fausets</button>
+    </div>
+
+    <div class="popup">
+      <h2 class="pop">The both boxes must be fille.!</h2>
     </div>
 
     <form action="submit-form" class="inputForm gameForm" id="change">
       <input type="text" placeholder="Paste Game URL Here..." id="input-box">
       <input type="text" placeholder="Project Name" id="name-box">
-      <button type="button" class="submit-ntb" onclick="addTask()">Add</button>
+      <button type="button" class="submit-ntb" id="add-button" onclick="addTask()">Add</button>
     </form>
     
     <div class="downSection">
+
+      <!-- GAME SLIDE SECTION -->
+
       <div class="slideContainer gamesSlide">
         <div class="list">
           <div class="listhead">
             <h2 class="form-title">Game List</h2>
           </div>
           <ul class="list-items" id="list-items">
-            <div class="line line1">
+            <div class="line line1" id="listline">
               <li class="list">List 1</li>
               <button class="nameBtn btn1">Play</button>
             </div>
@@ -55,37 +66,67 @@
   
       <form action="submit-form" class="inputForm airdropForm">
         <input type="text" placeholder="Paste Airdrop URL Here..." id="input-box">
+        <input type="text" placeholder="Project Name" id="name-box">
         <button type="button" class="submit-ntb" onclick="addTask()">Add</button>
       </form>
   
+
+      <!-- AIRDROP SLIDE SECTION -->
+
       <div class="slideContainer AirdropsSlide">
         <div class="list">
           <div class="listhead">
             <h2 class="form-title">Airdrops List</h2>
           </div>
           <ul class="list-items" id="list-items">
-            <!-- <li class="list">List 1</li>
+            <div class="line line1" id="listline">
+              <li class="list">List 1</li>
+              <button class="nameBtn btn1">Play</button>
+            </div>
+
+           <div class="line line2">
             <li class="list">List 2</li>
-            <li class="Checked">List 3</li> -->
+            <button class="nameBtn btn2">Play</button>
+           </div>
+
+            <div class="line line3">
+              <li class="Checked">List 3</li>
+              <button class="nameBtn btn3">Play</button>
+            </div>
           </ul>
         </div>
       </div>
   
   
-      <form action="submit-form" class="inputForm testnetForm">
+      <form action="submit-form" class="inputForm testnetForm" id="fform">
         <input type="text" placeholder="Paste Fausets URL..." id="input-box">
+        <input type="text" placeholder="Project Name" id="name-box">
         <button type="button" class="submit-ntb" onclick="addTask()">Add</button>
       </form>
   
+
+      <!-- FAUSET SLIDE SECTION -->
+
       <div class="slideContainer TestnetsSlide">
         <div class="list">
           <div class="listhead">
             <h2 class="form-title">Fausets List</h2>
           </div>
           <ul class="list-items" id="list-items">
-            <!-- <li class="list">List 1</li>
+            <div class="line line1" id="listline">
+              <li class="list">List 1</li>
+              <button class="nameBtn btn1">Play</button>
+            </div>
+
+           <div class="line line2">
             <li class="list">List 2</li>
-            <li class="Checked">List 3</li> -->
+            <button class="nameBtn btn2">Play</button>
+           </div>
+
+            <div class="line line3">
+              <li class="Checked">List 3</li>
+              <button class="nameBtn btn3">Play</button>
+            </div>
           </ul>
         </div>
       </div>
@@ -115,9 +156,10 @@
       </a>
     </footer>
     <div class="copyright-div">
-      <p class="copyright">All riht reserved Pauline-Tech 2021</p>
+      <p class="copyright">&copy; 2024 Pauline-Tech</p>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="third.js"></script>
+  <!-- <script src="script.js"></script> -->
 </body>
 </html>

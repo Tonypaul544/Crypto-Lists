@@ -1,58 +1,53 @@
 
 
+
+
 const inputBox = document.getElementById("input-box");
+const addButton = document.getElementById("add-button");
 const listItems = document.getElementById("list-items");
 const nameBox = document.getElementById("name-box");
 let button = document.createElement("button");
 let name = nameBox.value;
 
-      
+addButton.addEventListener("click", addTask);
 function addTask() {
-  //if the input is empty, drop a warning
-  if(inputBox.value === '') {
-    alert("The both boxes must be filled..!!")
-  }
+  if(inputBox.value === '' || nameBox.value === '') {
+    let warning = document.querySelector (".popup")
+    warning.style.display = "block";
   
-  else {
-    let li = document.createElement("li");
+    setTimeout(() => {
+      warning.style.display = "none"
+    }, 2500);
+
+    // alert("The both boxes must be filled..!!")
+  }
+
+  else { 
+    let div = document.createElement(div);
     li.innerHTML = inputBox.value;
+    div.appendChild (li);
+    div.classList (line);
     listItems.appendChild(li);
   }
   inputBox.value = '';
 
-  if(inputBox.value.contains("t.me/")) {
-    alert("Not a telegram link..!!!")
-  }
-  saveData()
-
-  
-
 }
 
+// let listline = document.querySelector(".listline")
+// nameBtn.addEventListener("click", showPlayBtn);
+// function showPlayBtn(){
+//   let name = nameBox.value
+//   button.innerHTML = name;
+//   listItems.appendChild(listline)
+// }
 
 
-nameBtn.addEventListener("click", showPlayBtn);
-let listline = document.querySelector(".listline")
-function showPlayBtn(){
-
-  button.innerHTML = name;
-  listItems.appendChild(listline)
-}
-
-
-
-
-function saveData() {
-  localStorage.setItem("data", listItems.innerHTML)
-}
-function showTask() {
-  listItems.innerHTML = localStorage.getItem("data");
-}
-showTask();
-
-
-
-
+// var games = document.querySelector("#games")
+// games.addEventListener("click", togame);
+// var gamesSlide = document.querySelector(".gamesSlide");
+// function togame() {
+//   alert("game")
+// }
 
 
 //Nav slide section
@@ -71,6 +66,7 @@ var testnetForm = document.querySelector(".testnetForm");
 games.addEventListener("click", toGame);
 function toGame() {
   gamesSlide.style.display = "block";
+  gamesSlide.style.width = "100%";
   gameForm.style.display = "block";
   AirdropsSlide.style.display = "none";
   airdropForm.style.display = "none";
@@ -97,49 +93,3 @@ function toTestnets() {
   gamesSlide.style.display = "none";
   gameForm.style.display = "none";
 }
-
-
-
-// Trigger the "enter" key
-// inputBox.addEventListener("keypress", function(event) {
-  //   if (event.key === "Enter") {
-    //     if(inputBox.value === '') {
-      //       alert("The both boxes can`t be empty..!!")
-      //     }
-      
-      //     let li = document.createElement("li");
-//     li.innerHTML = inputBox.value;
-//     listItems.appendChild(li);
-//   }
-//   saveData();
-//   inputBox.value = "";
-// })
-
-var list = document.querySelectorAll(".list");
-list.addEventListner("click", cancel);
-function cancel(e) {
-  list.classList.toggle ("Checked");
-}
-
-
-
-  // document.addEventListener("keypress", function(e) {
-  //   console.log(e);
-    
-  // })
-  
-  // function addTask(key) {
-  //   if(inputBox.value === '') {
-  //     alert("Can`t add empty list!!")
-  //   }
-  
-  //   else {
-  //     let li = document.createElement("li");
-  //     li.innerHTML = inputBox.value;
-  //     listItems.appendChild(li);
-  //     let span = document.createElement("span");
-  //     span.innerHTML = "\u00d7";
-  //     li.appendChild(span);
-  //   }
-  //   inputBox.value = '';
-  // }
