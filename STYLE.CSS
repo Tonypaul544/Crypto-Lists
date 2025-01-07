@@ -41,14 +41,14 @@ body {
 
 .row {
   width: fit-content;
-  height: 90px;
-  padding: 10px;
+  height: 60px;
+  /* padding: 10px; */
   align-items: center;
   /* background-color: gray; */
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin: 20px auto;
+  margin: auto;
   box-sizing: border-box;
 }
 
@@ -100,7 +100,7 @@ button:active {
 form {
   width: 100%;
   height: fit-content;
-  background-color: rgba(234, 232, 232, 0.975);
+  background-color: rgba(210, 209, 209, 0.64);
   margin: 10px auto;
   display: flex;
   flex-direction: row;
@@ -171,7 +171,7 @@ button {
   height: 40px;
   width: 80px;
   border-radius: 15px;
-  background-color: darkgreen;
+  background-color: rgba(0, 100, 0, 0.774);
   color: #fff;
   font-size: 20px;
   border: none;
@@ -187,7 +187,7 @@ button {
   display: flex;
   flex: 1;
   text-wrap: wrap;
-  background-color: rgb(194, 239, 224);
+  background-color: rgba(194, 239, 224, 0.767);
   margin: auto;
   text-align: center;
   padding: 10px;
@@ -245,14 +245,14 @@ button {
   position: relative;
   width: 100%;
   height: fit-content;
-  background-color: aliceblue;
+  background-color: rgba(193, 196, 199, 0.674);
   display: flex;
   flex-direction: column-reverse;
 }
 
 .list {
   margin: 5px 0;
-  background-color: aliceblue;
+  background-color: rgba(175, 178, 181, 0.708);
   margin-left: -10px;
   padding: 10px;
   width: 97%;
@@ -265,7 +265,7 @@ button {
 }
 
 li.list {
-  background-color: rgba(175, 206, 206, 0.84);
+  background-color: rgba(175, 206, 206, 0.727);
 }
 
 .listhead {
@@ -275,7 +275,7 @@ li.list {
 .form-title {
   font-size: 28px;
   font-weight: 600;
-  text-shadow: 1px 1.4px 1px gray;
+  text-shadow: 1px 1.4px 1px rgba(128, 128, 128, 0.756);
   /* position: absolute; */
   text-align: center;
   display: grid;
@@ -294,7 +294,7 @@ ul li {
   padding-left: 7px;
   border-radius: 12px;
   cursor: pointer;
-  background-color: rgb(184, 212, 216);
+  background-color: rgba(184, 212, 216, 0.677);
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -315,12 +315,12 @@ ul li.Checked {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgb(209, 218, 218);
+  background-color: rgba(209, 218, 218, 0.747);
   margin-bottom: 10px;
 }
 
 li:hover {
-  background-color: rgb(148, 181, 181);
+  background-color: rgba(148, 181, 181, 0.707);
   transition-duration: .6s;
   /* color: #fff; */
 }
@@ -391,10 +391,21 @@ a {
   max-width: 100%;
 }
 
-/* .inputForm{
-  max-width: 380px;
-}
 
-#inputForm {
-  width: 30px;
-} */
+/* ---MOBILE VIEW---- */
+
+@media only screen and (min-width: 320px) and (max-width: 568px) {
+  .list-container {
+    background-color:#ffffffaa;
+    width: 90vw;
+    height: fit-content;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 2px aliceblue;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+}
