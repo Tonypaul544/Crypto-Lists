@@ -9,13 +9,19 @@
 }
 
 body {
-  background-color: rgb(49, 120, 125);
+  /* background-color: rgb(49, 120, 125); */
+  background-image: url(images/crypto\ list1.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode:overlay;
   height: 100vh;
 }
 
 .list-container {
   background-color: #fff;
-  width: fit-content;
+  width: 400px;
   height: fit-content;
   padding: 5px 20px;
   box-sizing: border-box;
@@ -46,10 +52,11 @@ body {
   box-sizing: border-box;
 }
 
-/* .logo {
+.logo {
   width: 35px;
   height: 35px;
-} */
+  border-radius: 200px;
+}
 
 .warning {
   width: fit-content;
@@ -214,6 +221,7 @@ button {
 
 .AirdropsSlide, .TestnetsSlide {
   display: none;
+  width: 90vw;
 }
 
 .airdropForm, .testnetForm {
@@ -351,7 +359,8 @@ footer div h3 {
   margin-top: -12px;
   color: black;
   font-weight: 900;
-  font-size: 17px;
+  font-size: 13px;
+  font-family:serif;
   /* text-decoration: none; */
 }
 
@@ -381,3 +390,11 @@ a {
 #fform{
   max-width: 100%;
 }
+
+/* .inputForm{
+  max-width: 380px;
+}
+
+#inputForm {
+  width: 30px;
+} */
