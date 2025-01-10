@@ -6,7 +6,7 @@ const inputBox = document.getElementById("input-box");
 const addButton = document.getElementById("add-button");
 const listItems = document.getElementById("list-items");
 const nameBox = document.getElementById("name-box");
-let button = document.createElement("button");
+let button = document.querySelector(".nameBtn");
 let name = nameBox.value;
 
 addButton.addEventListener("click", addTask);
@@ -20,17 +20,24 @@ function addTask() {
     }, 2500);
 
     // alert("The both boxes must be filled..!!")
+    // saveTask();
   }
 
-  else { 
-    let div = document.createElement(div);
+  else {
+    let li = document.createElement("li");
     li.innerHTML = inputBox.value;
-    div.appendChild (li);
-    div.classList (line);
     listItems.appendChild(li);
+
+    let button = document.createElement("button");
+    button.innerHTML = nameBox.value;
+    listItems.appendChild(button);
+    button.classList.add("nameBtn")
+    button.innerHTML = inputBox.value;
+    button.textContent = nameBox.value
   }
   inputBox.value = '';
-
+  nameBox.value = '';
+  // saveTask();
 }
 
 // let listline = document.querySelector(".listline")
@@ -93,3 +100,40 @@ function toTestnets() {
   gamesSlide.style.display = "none";
   gameForm.style.display = "none";
 }
+
+
+function storeData() {
+  localStorage.setItem("list", listItems)
+}
+function saveTask() {
+  listItems.innerHTML = localStorage.getItem("list");
+}
+saveTask();
+
+
+
+// const inputBox = document.getElementById("input-box");
+// const listItems = document.getElementById("list-items");
+// const nameBox = document.getElementById("name-box");
+// let button = document.createElement("button");
+// let name = nameBox.value;
+
+      
+// function addTask() {
+//   //if the input is empty, drop a warning
+//   if(inputBox.value === '') {
+//     alert("The both boxes must be filled..!!")
+//   }
+  
+//   else {
+//     let li = document.createElement("li");
+//     li.innerHTML = inputBox.value;
+//     listItems.appendChild(li);
+//   }
+//   inputBox.value = '';
+
+//   // if(inputBox.value.contains("t.me/")) {
+//   //   alert("Not a telegram link..!!!")
+//   // }
+//   // saveData()
+// }
