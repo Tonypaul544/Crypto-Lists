@@ -374,14 +374,21 @@ footer div {
   overflow: hidden;
   width: fit-content;
   text-align: center;
-  background-color: rgb(173, 236, 236);
+  /* background-color: rgb(173, 236, 236); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+  align-items: center;
   margin: auto;
+  width: 90px;
   height: 70px;
 }
 
-footer.social {
+/* footer.social {
   background-color: rgb(176, 193, 195);
-}
+} */
 
 footer a i {
   height: 35px;
