@@ -1,106 +1,54 @@
 
 
-const inputBox = document.getElementById("input-box");
-const addButton = document.getElementById("add-button");
-const listItems = document.getElementById("list-items");
-const nameBox = document.getElementById("name-box");
-let button = document.createElement("button");
-let name = nameBox.value;
+const linkInput = document.getElementById("input-box");
+const nameInput = document.getElementById("name-box");
+const addBtn = document.getElementById("addBtn");
+const listItem = document.getElementById("items");
+let listcontainer = document.getElementById("listcontainer");
 
-addButton.addEventListener("click", addTask);
-function addTask() {
-  if(inputBox.value === '' || nameBox.value === '') {
-    let warning = document.querySelector (".popup")
+
+let addTask = () => {
+
+
+  if(linkInput.value === '' || nameInput.value === '') {
+    let warning = document.getElementById("popup")
     warning.style.display = "block";
   
     setTimeout(() => {
       warning.style.display = "none"
     }, 2500);
 
-    // alert("The both boxes must be filled..!!")
   }
 
-  // else { 
-  //   let div = document.createElement(div);
-  //   li.innerHTML = inputBox.value;
-  //   div.appendChild (li);
-  //   div.classList (line);
-  //   listItems.appendChild(li);
-  // }
-  inputBox.value = '';
+  else {
+    
+    listItem.innerHTML += `
+    
+    <div class="line line1"  id="line">
+      <li class="list" id="link">List 1</li>
+      <button class="nameBtn btn1" id="projectName">Play</button>
+    </div>
+    
+    `;
+    listItem.style.display = "flex";
+    listItem.style.flexDirection = "column";
+    projectName.innerHTML = nameInput.value;
+    acceptData()
 
+  }
+  saveData()
 }
 
-nameBtn.addEventListener("click", showPlayBtn);
-let listline = document.querySelector(".listline")
-function showPlayBtn(){
-  let name = nameBox.value
-  button.innerHTML = name;
-  listItems.appendChild(listline)
+addBtn.addEventListener("click", addTask);
+
+const link = document.getElementById("link").innerHTML = linkInput.value;
+var projectName = document.getElementById("projectName");
+
+
+function saveData() {
+  localStorage.setItem("data", listcontainer.innerHTML)
+}
+function showTask() {
+  listcontainer.innerHTML = localStorage.getItem("data");
 }
 
-// Nav slide section
-var Airdrops = document.querySelector(".Airdrops")
-var Testnets = document.querySelector(".Testnets")
-
-var gameForm = document.querySelector(".gameForm");
-var airdropForm = document.querySelector(".airdropForm");
-var testnetForm = document.querySelector(".testnetForm");
-
-var AirdropsSlide = document.querySelector(".AirdropsSlide");
-var TestnetsSlide = document.querySelector(".TestnetsSlide");
-
-
-var games = document.querySelector("#games")
-games.addEventListener("click", togame);
-var gamesSlide = document.querySelector(".gamesSlide");
-function togame() {
-  alert("game")
-}
-
-
-
-
-
-
-
-games.addEventListener("click", showGames);
-function showGames() {
-  gamesSlide.style.display = "block";
-  gameForm.style.display = "block";
-  AirdropsSlide.style.display = "none";
-  airdropForm.style.display = "none";
-  TestnetsSlide.style.display = "none";
-  testnetForm.style.display = "none";
-}
-
-Airdrops.addEventListener("click", showAirdrops);
-function showAirdrops() {
-  AirdropsSlide.style.display = "block";
-  // airdropForm.style.display = "block";
-  
-  gamesSlide.style.display = "none";
-  gameForm.style.display = "none";
-  TestnetsSlide.style.display = "none";
-  testnetForm.style.display = "none";
-}
-
-
-
-
-
-
-// Airdrops.addEventListener("click", toAirdrops);
-// function toAirdrops() {
-
-// }
-
-Testnets.addEventListener("click", toTestnets);
-function toTestnets() {
-  TestnetsSlide.style.display = "block";
-  testnetForm.style.display = "block";
-  AirdropsSlide.style.display = "none";
-  airdropForm.style.display = "none";
-  gamesSlide.style.display = "none";
-  gameForm.style.display = "none";
-}

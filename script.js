@@ -48,7 +48,7 @@ function saveData() {
 function showTask() {
   listItems.innerHTML = localStorage.getItem("data");
 }
-showTask();
+// showTask();
 
 
 
@@ -143,3 +143,6 @@ function cancel(e) {
   //   }
   //   inputBox.value = '';
   // }
+
+
+  

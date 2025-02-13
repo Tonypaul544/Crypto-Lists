@@ -7,7 +7,7 @@ const addButton = document.getElementById("add-button");
 const listItems = document.getElementById("list-items");
 const nameBox = document.getElementById("name-box");
 let button = document.querySelector(".nameBtn");
-let name = nameBox.value;
+let name = document.querySelector ("btn1");
 
 addButton.addEventListener("click", addTask);
 function addTask() {
@@ -17,17 +17,16 @@ function addTask() {
   
     setTimeout(() => {
       warning.style.display = "none"
-    }, 2500);
+    }, 2000);
 
     // alert("The both boxes must be filled..!!")
     // saveTask();
   }
 
   else {
-    let li = document.createElement("li");
-    li.innerHTML = inputBox.value;
-    listItems.appendChild(li);
-
+    updateName()
+    console.log(updateName);
+  
     let button = document.createElement("button");
     button.innerHTML = nameBox.value;
     listItems.appendChild(button);
@@ -38,23 +37,40 @@ function addTask() {
   inputBox.value = '';
   nameBox.value = '';
   // saveTask();
+  saveTask();
 }
 
-// let listline = document.querySelector(".listline")
-// nameBtn.addEventListener("click", showPlayBtn);
-// function showPlayBtn(){
-//   let name = nameBox.value
-//   button.innerHTML = name;
-//   listItems.appendChild(listline)
-// }
+
+let data = {};
+let projectName = document.getElementById("projectName");
+
+let geteName = () => {
+  data["name"] = nameBox.value
+  
+}
+
+let updateName = () => {
+  projectName.innerHTML = data.name;
+}
 
 
-// var games = document.querySelector("#games")
-// games.addEventListener("click", togame);
-// var gamesSlide = document.querySelector(".gamesSlide");
-// function togame() {
-//   alert("game")
-// }
+
+
+let listline = document.querySelector(".listline")
+nameBtn.addEventListener("click", showPlayBtn);
+function showPlayBtn(){
+  let name = nameBox.value
+  button.innerHTML = name;
+  listItems.appendChild(listline);
+}
+
+
+var games = document.querySelector("#games")
+games.addEventListener("click", togame);
+var gamesSlide = document.querySelector(".gamesSlide");
+function togame() {
+  alert("game")
+}
 
 
 //Nav slide section
@@ -70,7 +86,7 @@ var gameForm = document.querySelector(".gameForm");
 var airdropForm = document.querySelector(".airdropForm");
 var testnetForm = document.querySelector(".testnetForm");
 
-games.addEventListener("click", toGame);
+games.addEventListener("click", toGame); // Slide To Game Section
 function toGame() {
   gamesSlide.style.display = "block";
   gamesSlide.style.width = "100%";
@@ -81,7 +97,7 @@ function toGame() {
   testnetForm.style.display = "none";
 }
 
-Airdrops.addEventListener("click", toAirdrops);
+Airdrops.addEventListener("click", toAirdrops);  // Slide To Airdrop Section
 function toAirdrops() {
   AirdropsSlide.style.display = "block";
   airdropForm.style.display = "block";
@@ -91,7 +107,7 @@ function toAirdrops() {
   testnetForm.style.display = "none";
 }
 
-Testnets.addEventListener("click", toTestnets);
+Testnets.addEventListener("click", toTestnets); // Slide To Testnet Section
 function toTestnets() {
   TestnetsSlide.style.display = "block";
   testnetForm.style.display = "block";
@@ -101,7 +117,6 @@ function toTestnets() {
   gameForm.style.display = "none";
 }
 
-
 function storeData() {
   localStorage.setItem("list", listItems)
 }
@@ -110,30 +125,23 @@ function saveTask() {
 }
 saveTask();
 
-
-
-// const inputBox = document.getElementById("input-box");
-// const listItems = document.getElementById("list-items");
-// const nameBox = document.getElementById("name-box");
-// let button = document.createElement("button");
-// let name = nameBox.value;
-
       
-// function addTask() {
-//   //if the input is empty, drop a warning
-//   if(inputBox.value === '') {
-//     alert("The both boxes must be filled..!!")
-//   }
+function addTask() {
+  //if the input is empty, drop a warning
+  if(inputBox.value === '') {
+    alert("The both boxes must be filled..!!")
+  }
   
-//   else {
-//     let li = document.createElement("li");
-//     li.innerHTML = inputBox.value;
-//     listItems.appendChild(li);
-//   }
-//   inputBox.value = '';
+  else {
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value;
+    listItems.appendChild(li);
+  }
+  inputBox.value = '';
 
-//   // if(inputBox.value.contains("t.me/")) {
-//   //   alert("Not a telegram link..!!!")
-//   // }
-//   // saveData()
-// }
+ 
+}
+
+
+
+
