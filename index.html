@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="STYLE.CSS">
-  <link rel="shortcut icon" href="images/telegram icon png.jpeg" type="image/x-icon">
+
+  <link rel="shortcut icon" href="images/small-profile.jpg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>CRYPTO LIST</title>
@@ -12,8 +13,26 @@
 <body>
   <div class="list-container">
     <div class="row">
-      <h1 class="list-header">CRYPTO LISTS</h1>
-      <img src="images/pat_task-removebg-preview.png" alt="" class="logo">
+      <h1 id="list-header">CRYPTO LISTS</h1>
+        <div class="profile-div" id="profile-div">
+          <h4 class="userName" id="userName">COURAGE</h4>
+          <img src="images/WhatsApp Image 2025-02-15 at 15.50.12_0425b40d.jpg" alt="" class="logo">
+        </div>
+    </div>
+
+    <div class="typename" id="nameDiv">
+      <form action="submit" class="nameForm">
+        <div id="picDiv">
+          <img src="images/BW-profile.png" alt="" id="blank">
+
+          <label for="inputFile" id="file-label">Select Photo</label>
+
+          <input type="file" accept="image/jpeg, image/jpg, image/pdf image/png" id="inputFile">
+        </div>
+
+        <textarea type="text" id="typename" placeholder="Enter your name" required></textarea>
+        <button type="button" id="saveName">Save</button>
+      </form>
     </div>
 
     <div class="nav-container">
@@ -21,9 +40,8 @@
       <button class="navBtn Airdrops">Airdrops</button>
       <button class="navBtn Testnets">Fausets</button>
     </div>
-
     <div class="warning" id="popup">
-      <h2 class="warningText">The both firld must be filled..!!</h2>
+      <h2 class="warningText">The both fields must be filled..!!</h2>
     </div>
 
     <form action="submit-form" class="inputForm gameForm" id="change">
