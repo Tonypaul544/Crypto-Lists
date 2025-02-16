@@ -63,6 +63,7 @@ body {
   display: flex;
   align-items: center;
   font-size: 23px;
+  font-weight: 800;
   font-weight: 600;
   /* background-color: antiquewhite; */
 }
@@ -78,7 +79,7 @@ body {
 }
 
 .userName {
-  font-size: 14px;
+  font-size: 11.2px;
   margin: auto;
 }
 
@@ -196,6 +197,7 @@ button {
   font-weight: 600;
   cursor: pointer;
 }
+
 #popup {
   height: 50px;
   width: fit-content;
@@ -244,9 +246,12 @@ button {
 .slideContainer {
   animation: slide 1.5s;
   max-width: 100%;
-  height: 400px;
+  height: fit-content;
+  max-height: 350px;
+  box-sizing: border-box;
+  border-radius: 12px;
   margin-top: 20px;
-  /* background-color: blueviolet; */
+  background-color: rgba(159, 176, 178, 0.625);
 }
 
 .AirdropsSlide, .TestnetsSlide {
@@ -280,7 +285,7 @@ button {
   height: fit-content;
   overflow-y: scroll;
   scrollbar-width: 0;
-  background-color: #cef0fb9d;
+  /* background-color: #cef0fb9d; */
   display: flex;
   flex-direction: column-reverse;
   justify-content: start;
@@ -308,7 +313,7 @@ button {
 }
 
 div #line {
-  background-color: rgba(133, 157, 163, 0.789);
+  background-color: rgba(147, 161, 164, 0.789);
   height: 70px;
   min-height: 65px;
   padding: 5px;
@@ -479,7 +484,7 @@ a {
   display: flex;
   box-sizing: border-box;
   margin-left: 30px;
-  /* display: none; */
+  display: none;
   z-index: 1;
   animation: slide 1s;
 }
