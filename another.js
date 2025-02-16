@@ -10,7 +10,6 @@ let profile = document.getElementById("profile-div");
 
 let profilePic = document.getElementById("blank");
 let typename = document.getElementById("typename");
-let inputFile = document.getElementById("writeName");
 let writeName = document.getElementById("writeName");
 let saveName = document.getElementById("saveName");
 // let body = document.getElementById("container");
@@ -27,11 +26,11 @@ function updateProfile() {
     alert("Name can`t be blank!")
   }
   else {
-    userName.innerHTML = typename.value;
-    typename.value = "";
+    userName.innerHTML = typename.value; //updates the username 
+    typename.value = ""; //clears the name input box
     nameDiv.style.display = "none";
     let warning = document.getElementById("popup")
-    warning.innerHTML = `Congrats ${typename.value} Profile saved successfully`
+    warning.innerHTML = "Profile saved successfully";
     warning.style.display = "block";
   
     setTimeout(() => {
@@ -41,7 +40,10 @@ function updateProfile() {
 }
 
 
-// inputFile.onchange() = function(){
+let inputFile = document.getElementById("writeName");
+
+
+// inputFile.onclick() = function(){
 //   profilePic.src = URL.createObjectURL(inputFile.files[0])
 // };
 
