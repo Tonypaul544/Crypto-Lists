@@ -40,17 +40,11 @@ function updateProfile() {
 }
 
 
-let inputFile = document.getElementById("writeName");
-
+// let inputFile = document.getElementById("writeName");
 
 // inputFile.onclick() = function(){
 //   profilePic.src = URL.createObjectURL(inputFile.files[0])
 // };
-
-
-
-
-
 
 
 const linkInput = document.getElementById("input-box");
@@ -72,6 +66,7 @@ let addTask = (e) => {
   if(linkInput.value === '' || nameInput.value === '') {
     let warning = document.getElementById("popup")
     warning.style.display = "block";
+    warning.innerHTML = "Both fields are required.!"
   
     setTimeout(() => {
       warning.style.display = "none"
@@ -81,21 +76,16 @@ let addTask = (e) => {
 
   else {
 
-    // let data = {};
 
-    // let geteName = () => {
-    //   data["pjName"] = nameInput.value
-      
-    // }
-
-    link.innerHTML = linkInput.value;
-    projectName.textContent = nameInput.value;
+    // link.innerHTML = linkInput.value;
+    // projectName.innerHTML = `
+    //   <button href="${linkInput.value}" class="nameBtn btn1" id="projectName">Play</button>
+    // `
 
     listItem.innerHTML += `
-    
     <div class="line line1"  id="line">
-      <li class="list" id="link">List 1</li>
-      <button class="nameBtn btn1" id="projectName">Play</button>
+      <li class="list" id="link">${nameInput.value}</li>
+      <a href="${linkInput.value}" class="nameBtn btn1" id="projectName"><button>Play</button></a>      
     </div>`;
 
     nameInput.value = "";
