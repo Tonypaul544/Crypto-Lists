@@ -1,24 +1,15 @@
 
 
-
-
-
-
-
 const nameDiv = document.getElementById("nameDiv");
 let profile = document.getElementById("profile-div");
-
 let profilePic = document.getElementById("blank");
 let typename = document.getElementById("typename");
 let writeName = document.getElementById("writeName");
 let saveName = document.getElementById("saveName");
-// let body = document.getElementById("container");
-
 profile.addEventListener("click", editProfile);
 function editProfile() {
   nameDiv.style.display = "block";
 }
-
 
 saveName.addEventListener("click", updateProfile);
 function updateProfile() {
@@ -39,13 +30,11 @@ function updateProfile() {
   }
 }
 
-
 // let inputFile = document.getElementById("writeName");
 
 // inputFile.onclick() = function(){
 //   profilePic.src = URL.createObjectURL(inputFile.files[0])
 // };
-
 
 const linkInput = document.getElementById("input-box");
 const nameInput = document.getElementById("name-box");
@@ -59,29 +48,25 @@ let userName = document.getElementById("userName");
 
 
 
-let addTask = (e) => {
+function addTask(e) {
   e.preventDefault();
 
-
-  if(linkInput.value === '' || nameInput.value === '') {
-    let warning = document.getElementById("popup")
+  if (linkInput.value === '' || nameInput.value === '') {
+    let warning = document.getElementById("popup");
     warning.style.display = "block";
-    warning.innerHTML = "Both fields are required.!"
-  
+    warning.innerHTML = "Both fields are required.!";
+
     setTimeout(() => {
-      warning.style.display = "none"
+      warning.style.display = "none";
     }, 2500);
 
   }
 
   else {
-
-
     // link.innerHTML = linkInput.value;
     // projectName.innerHTML = `
     //   <button href="${linkInput.value}" class="nameBtn btn1" id="projectName">Play</button>
     // `
-
     listItem.innerHTML += `
     <div class="line line1"  id="line">
       <li class="list" id="link">${nameInput.value}</li>
@@ -90,30 +75,23 @@ let addTask = (e) => {
 
     nameInput.value = "";
     linkInput.value = "";
-    
+
     listItem.style.display = "flex";
     listItem.style.flexDirection = "column";
     projectName.innerHTML = nameInput.value;
-    
-    // acceptData()
 
+    // acceptData()
   }
-  saveData()
+  saveData();
 }
+addBtn.addEventListener("click", addTask); 
 
 projectName.addEventListener("click", openLink );
-
 function openLink() {
   if (linkInput) { //Checks if the link is empty
     window.open(link, '_blank');
   }
 }
-
-addBtn.addEventListener("click", addTask);
-
-// const link = document.getElementById("link").innerHTML = linkInput.value;
-// var projectName = document.getElementById("projectName");
-
 
 function saveData() {
   localStorage.setItem("data", listcontainer.innerHTML)
