@@ -702,7 +702,10 @@ a {
 }
 
 .dark {
-  background-color: rgba(159, 176, 178, 0.625);
+  background-color: rgba(57, 67, 68, 0.89);
+  * {
+    color: #fff;
+  }
 }
 
 .smalldark {

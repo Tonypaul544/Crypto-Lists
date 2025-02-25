@@ -23,17 +23,17 @@ const confirmNo = document.getElementById("confirmNo");
 const confirmYes = document.getElementById("confirmYes");
 const confirmationdiv = document.getElementById("confirmationdiv");
 
-// theme.addEventListener("click", toggleTheme);
-// function toggleTheme() {
-//   listContainer.classList.toggle("dark");
-//   change.classList.toggle("dark");
-//   listCount.classList.toggle("dark");
-//   listItem.classList.toggle("smalldark");
-//   document.TEXT_NODE.classList.toggle("color");
-//   nameDiv.classList.toggle("dark");
-//   theme.classList.toggle("color");
-//   profilePic.classList.toggle("dark");
-// };
+theme.addEventListener("click", toggleTheme);
+function toggleTheme() {
+  listContainer.classList.toggle("dark");
+  change.classList.toggle("dark");
+  // listCount.classList.toggle("dark");
+  listItem.classList.toggle("smalldark");
+  nameDiv.classList.toggle("dark");
+  theme.classList.toggle("color");
+  profilePic.classList.toggle("dark");
+  saveTasks(); // Save theme after toggling
+};
 
 profile.addEventListener("click", editProfile);
 
