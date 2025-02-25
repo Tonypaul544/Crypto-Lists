@@ -65,7 +65,20 @@
     animation: slide 1s;
   }
 
-
+  .dark {
+    background-color: rgba(57, 67, 68, 0.89);
+    * {
+      color: #fff;
+    }
+  }
+  
+  .smalldark {
+    background-color: rgba(189, 220, 223, 0.625);
+  }
+  
+  #color {
+    color: #fff;
+  }
 
 }
 
