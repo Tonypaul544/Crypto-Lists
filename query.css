@@ -46,12 +46,13 @@
 
 
   .typename {
-    background-color:rgba(225, 242, 242, 0.85);
+    background-color:rgba(225, 242, 242, 0.965);
     width: 300px;
     height: 400px;
     padding: 5px;
     position: unset;
     position: absolute;
+    margin: unset;
     margin: auto;
     margin-top: 65px;
     margin-bottom: 32px;

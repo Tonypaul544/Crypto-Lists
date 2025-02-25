@@ -1,102 +1,195 @@
 
 
 const nameDiv = document.getElementById("nameDiv");
-let profile = document.getElementById("profile-div");
-let profilePic = document.getElementById("blank");
-let typename = document.getElementById("typename");
-let writeName = document.getElementById("writeName");
-let saveName = document.getElementById("saveName");
+const profile = document.getElementById("profile-div");
+const profilePic = document.getElementById("blank");
+const typename = document.getElementById("typename");
+const writeName = document.getElementById("writeName");
+const saveName = document.getElementById("saveName");
+const linkInput = document.getElementById("input-box");
+const nameInput = document.getElementById("name-box");
+const addBtn = document.getElementById("addBtn");
+const listItem = document.getElementById("items");
+const listContainer = document.getElementById("listcontainer");
+const userName = document.getElementById("userName");
+const limitDiv = document.getElementById("limit-div");
+let listCount = document.getElementById("list")
+let totalList = document.getElementById("totalList")
+const hideEdit = document.getElementById("hideEdit");
+const theme = document.getElementById("theme");
+const change = document.getElementById("change");
+const clearAllTasks = document.getElementById("clearAllTasks");
+const confirmNo = document.getElementById("confirmNo");
+const confirmYes = document.getElementById("confirmYes");
+const confirmationdiv = document.getElementById("confirmationdiv");
+
+// theme.addEventListener("click", toggleTheme);
+// function toggleTheme() {
+//   listContainer.classList.toggle("dark");
+//   change.classList.toggle("dark");
+//   listCount.classList.toggle("dark");
+//   listItem.classList.toggle("smalldark");
+//   document.TEXT_NODE.classList.toggle("color");
+//   nameDiv.classList.toggle("dark");
+//   theme.classList.toggle("color");
+//   profilePic.classList.toggle("dark");
+// };
+
 profile.addEventListener("click", editProfile);
+
 function editProfile() {
   nameDiv.style.display = "block";
 }
 
 saveName.addEventListener("click", updateProfile);
+
 function updateProfile() {
-  if(typename.value === ""){
-    alert("Name can`t be blank!")
-  }
-  else {
-    userName.innerHTML = typename.value; //updates the username 
-    typename.value = ""; //clears the name input box
+  if (typename.value === "") {
+    alert("Name can't be blank!");
+  } else {
+    userName.innerHTML = typename.value;
+    localStorage.setItem("userName", typename.value); // Save username
+    typename.value = "";
     nameDiv.style.display = "none";
-    let warning = document.getElementById("popup")
+    let warning = document.getElementById("popup");
     warning.innerHTML = "Profile saved successfully";
     warning.style.display = "block";
-  
-    setTimeout(() => {
-      warning.style.display = "none"
-    }, 2500);
-  }
-}
-
-// let inputFile = document.getElementById("writeName");
-
-// inputFile.onclick() = function(){
-//   profilePic.src = URL.createObjectURL(inputFile.files[0])
-// };
-
-const linkInput = document.getElementById("input-box");
-const nameInput = document.getElementById("name-box");
-const addBtn = document.getElementById("addBtn");
-const listItem = document.getElementById("items");
-let listcontainer = document.getElementById("listcontainer");
-const link = document.getElementById("link");
-const projectName = document.getElementById("projectName");
-let userName = document.getElementById("userName");
-
-
-
-
-function addTask(e) {
-  e.preventDefault();
-
-  if (linkInput.value === '' || nameInput.value === '') {
-    let warning = document.getElementById("popup");
-    warning.style.display = "block";
-    warning.innerHTML = "Both fields are required.!";
 
     setTimeout(() => {
       warning.style.display = "none";
     }, 2500);
-
   }
+}
 
-  else {
-    // link.innerHTML = linkInput.value;
-    // projectName.innerHTML = `
-    //   <button href="${linkInput.value}" class="nameBtn btn1" id="projectName">Play</button>
-    // `
-    listItem.innerHTML += `
-    <div class="line line1"  id="line">
-      <li class="list" id="link">${nameInput.value}</li>
-      <a href="${linkInput.value}" class="nameBtn btn1" id="projectName"><button>Play</button></a>      
-    </div>`;
+hideEdit.addEventListener("click", () => {
+  nameDiv.style.display = "none";
 
+});
+
+
+// Load username on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const storedUserName = localStorage.getItem("userName");
+  if (storedUserName) {
+    userName.innerHTML = storedUserName;
+  }
+  loadTasks(); // Load tasks on page load
+});
+
+function addTask(e) {
+  e.preventDefault();
+
+  if (linkInput.value === "" || nameInput.value === "") {
+    let warning = document.getElementById("popup");
+    warning.innerHTML = "Both fields are required.!";
+    warning.style.display = "block";
+
+    setTimeout(() => {
+      warning.style.display = "none";
+    }, 2500);
+  }
+  //  else if (storedTasks.lenght > 7) {
+  //   alert("hello world.")
+  //   // limitDiv.style.display = "block";
+  // }
+
+
+   else {
+    const safeName = nameInput.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); // Sanitize input
+    const newItem = document.createElement('div'); // Create the div
+    newItem.className = "line line1";
+    newItem.innerHTML = `
+      <li class="list">${safeName}</li>
+      <a href="${linkInput.value}" class="nameBtn btn1" target="_blank"> 
+        <button>Play</button>
+      </a>`;
+    listItem.appendChild(newItem); // Append to the list
     nameInput.value = "";
     linkInput.value = "";
-
-    listItem.style.display = "flex";
-    listItem.style.flexDirection = "column";
-    projectName.innerHTML = nameInput.value;
-
-    // acceptData()
+    saveTasks(); // Save tasks after adding
   }
-  saveData();
-}
-addBtn.addEventListener("click", addTask); 
 
-projectName.addEventListener("click", openLink );
-function openLink() {
-  if (linkInput) { //Checks if the link is empty
-    window.open(link, '_blank');
+  totalList.innerHTML = listCount.length;
+  function turnGreen () {
+    if (listCount.length > 0) {
+      totalList.style.color = "green";
+    }
+    totalList.style.color = "green";
   }
 }
 
-function saveData() {
-  localStorage.setItem("data", listcontainer.innerHTML)
+// Event listener for "Add" button clicks
+addBtn.addEventListener("click", addTask);
+
+// Event delegation for "Play" button clicks
+listItem.addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    window.open(event.target.parentNode.href, "_blank");
+  }
+});
+
+// Save tasks to localStorage
+function saveTasks() {
+  const tasks = [];
+  const taskElements = listItem.querySelectorAll('.line'); // Get all task elements
+
+  taskElements.forEach(taskElement => {
+    const name = taskElement.querySelector('.list').textContent;
+    const link = taskElement.querySelector('.nameBtn').href;
+    tasks.push({ name, link });
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(tasks)); // Store tasks as JSON
 }
-function showTask() {
-  listcontainer.innerHTML = localStorage.getItem("data");
+
+// Load tasks from localStorage
+function loadTasks() {
+  const storedTasks = localStorage.getItem("tasks");
+  if (storedTasks) {
+    try {
+      const tasks = JSON.parse(storedTasks);
+      tasks.forEach(task => {
+        const newItem = document.createElement('div');
+        newItem.className = "line line1";
+        newItem.innerHTML = `
+          <li class="list">${task.name}</li>
+          <a href="${task.link}" class="nameBtn btn1" target="_blank">
+            <button>Play</button>
+          </a>`;
+        listItem.appendChild(newItem);
+      });
+
+      totalList.innerHTML = tasks.length
+    } catch (error) {
+      console.error("Error parsing stored tasks:", error);
+      // Handle the error (e.g., clear localStorage or display a message)
+      localStorage.removeItem("tasks"); //Example
+    }
+  }
 }
+
+// Clear all tasks
+function clearTasks() {
+  listItem.innerHTML = "";
+  saveTasks(); // Save tasks after clearing
+}
+
+
+// Event listener for "Clear All" button clicks
+clearAllTasks.addEventListener("click", () => {
+  // alert("Are you sure you want to clear all tasks?");
+  confirmationdiv.style.display = "flex";
+});
+
+confirmYes.addEventListener("click", () => {
+  confirmationdiv.style.display = "none";
+  clearTasks()
+});
+
+confirmNo.addEventListener("click", () => {
+  confirmationdiv.style.display = "none";
+});
+
+
+
 
